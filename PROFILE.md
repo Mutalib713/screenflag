@@ -78,6 +78,17 @@ the same file that is edited, and because this machine punishes toolchains.
 - Hosting: **none.** GitHub raw through a CDN. No Vercel project, no infra, $0/month.
 - Repo: **public** (his decision, same day) so teammates need no account and no invite
 
+> ⚠ **OPEN — the update story does not work yet.** Measured 2026-08-25: jsDelivr serves a stale
+> copy of `@main` for hours after a push. A fix was pushed, `purge.jsdelivr.net` returned
+> `"status":"finished"`, and the CDN still served the old file **70+ seconds and six checks
+> later**. A commit-pinned URL (`@<sha>`) serves the new file instantly, but a pinned bookmark
+> never updates, which defeats the point.
+>
+> So README's "updates arrive on their own, nobody re-copies anything" is **currently false**.
+> Resolve before sharing widely. Candidates: deploy the repo as a Vercel static site (push →
+> auto-deploy → fresh, still $0, but it is a change to this section and therefore Mutalib's call),
+> or accept eventual consistency and document the lag honestly.
+
 ## 8. SACRED RULES
 
 1. **Flags are the product.** If something must be cut, cut viewport polish. Never the flagging or

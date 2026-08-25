@@ -4,6 +4,8 @@
   "private": false,
   "description": "Responsive review station that opens inside the page you are already on.",
   "scripts": {
-    "check": "node --check src/screenflag.js && node --check bookmarklet.js && echo check passed"
+    "check": "node --check src/screenflag.js && node --check bookmarklet.js && echo check passed",
+    "publish": "git push origin main && npm run purge",
+    "purge": "curl -s https://purge.jsdelivr.net/gh/Mutalib713/screenflag@main/src/screenflag.js"
   }
 }
