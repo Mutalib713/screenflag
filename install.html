@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>screenflag — install</title>
+<style>
+  :root{--ground:#eef1ee;--surface:#fff;--recess:#f4f6f3;--ink:#16191a;--ink2:#444d46;
+    --muted:#6b756d;--green:#004d27;--accent:#006837;--rule:#d3dcd1;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ground);color:var(--ink);
+    font:16px/1.6 "Source Sans 3","Segoe UI",system-ui,sans-serif;}
+  .mono{font-family:"JetBrains Mono",Consolas,monospace;font-variant-ligatures:none;
+    font-feature-settings:'liga' 0,'calt' 0;}
+  .wrap{max-width:720px;margin:0 auto;padding:48px 20px 80px;}
+  h1{font-size:34px;line-height:1.15;margin:0 0 10px;color:var(--green);letter-spacing:-.02em;}
+  .lede{margin:0 0 32px;color:var(--ink2);font-size:17px;}
+  .card{background:var(--surface);border:1px solid var(--rule);border-radius:12px;
+    padding:24px;margin-bottom:20px;}
+  h2{font-size:18px;margin:0 0 10px;color:var(--green);}
+  ol{margin:0;padding-left:20px;}
+  li{margin-bottom:8px;}
+  .drag{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+    font-weight:700;font-size:16px;padding:13px 26px;border-radius:9px;cursor:grab;
+    box-shadow:0 6px 18px rgba(0,45,25,.18);}
+  .drag:active{cursor:grabbing;}
+  .hint{font-size:13px;color:var(--muted);margin-top:10px;}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;}
+  td{padding:7px 10px 7px 0;border-bottom:1px solid #e5ebe6;vertical-align:top;}
+  td:first-child{white-space:nowrap;font-weight:600;width:150px;}
+  tr:last-child td{border-bottom:0;}
+  code{background:var(--recess);padding:1px 5px;border-radius:4px;font-size:13.5px;}
+  .warn{background:#fdf3dd;border-left:3px solid #b8891a;padding:14px 16px;border-radius:0 8px 8px 0;}
+  .warn p{margin:0 0 6px;font-size:14.5px;}
+  .warn p:last-child{margin:0;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>screenflag</h1>
+  <p class="lede">A responsive review station that opens inside the page you are already looking at.
+  Resize, step through your routes, measure each screen, and flag the broken ones with a note.</p>
+
+  <div class="card">
+    <h2>Install</h2>
+    <ol>
+      <li>Make sure your bookmarks bar is showing — <code>Ctrl</code> + <code>Shift</code> + <code>O</code>, or <code>Ctrl</code> + <code>Shift</code> + <code>B</code> to toggle it.</li>
+      <li>Drag this button up onto the bar:</li>
+    </ol>
+    <p style="margin:18px 0 0">
+      <a class="drag"
+         href="javascript:(function(){var e=document.getElementById('__screenflag_host');if(e){e.remove();return}var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/gh/Mutalib713/screenflag@main/src/screenflag.js';s.onerror=function(){alert('screenflag could not load.\n\nThis site most likely blocks injected scripts with a Content Security Policy (GitHub and X do this). Your own apps normally do not.\n\nThis is not a network problem, and retrying will not help here.')};document.documentElement.appendChild(s)})();"
+      >screenflag</a>
+    </p>
+    <p class="hint">Dragging is required — clicking it on this page does nothing useful.
+    Then open any site you want to review and click the bookmark.</p>
+  </div>
+
+  <div class="card">
+    <h2>What it does</h2>
+    <table>
+      <tr><td>Routes</td><td>Save a route list per site. Your GMSA routes wait for you on GMSA; Perry's wait on Perry's.</td></tr>
+      <tr><td>Widths</td><td>Presets, plus drag the right edge to any width. The true CSS width is always on screen.</td></tr>
+      <tr><td>Scale</td><td>Fit / 100% / 75% / 50%. Shrinks the picture only — the page still lays out at its real width.</td></tr>
+      <tr><td>Device / full page</td><td>Scroll inside a fixed height like a phone, or grow the frame to the whole document.</td></tr>
+      <tr><td>Measure</td><td>Sideways overflow (naming the element), tap targets under 44px, text under 12px, nested scrollers.</td></tr>
+      <tr><td>Flag</td><td>Star a screen and add a note. It captures the route, width, time and findings for you.</td></tr>
+      <tr><td>Export</td><td>Routes and flags as JSON for a teammate, or a markdown summary to paste into chat.</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>What it cannot do</h2>
+    <div class="warn">
+      <p><strong>It cannot measure a page on another domain.</strong> Browsers do not let one site
+      read another's page. It will still display it, and it will say so plainly rather than
+      reporting a false all-clear.</p>
+      <p><strong>It cannot run where a site blocks injected scripts.</strong> GitHub and X do this.
+      Your own apps almost never do.</p>
+      <p><strong>It is not a real device.</strong> It changes the viewport, not the browser engine,
+      the touch input or the GPU.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Sharing</h2>
+    <p style="margin:0 0 8px">Send a teammate this page. Then open <strong>Flags → Export</strong>,
+    copy the JSON, and send it to them — they paste it into <strong>Import</strong> and see exactly
+    your screens and your findings.</p>
+    <p style="margin:0;color:var(--muted);font-size:14.5px">Updates arrive on their own. The
+    bookmark fetches the current file every click, so nobody re-copies anything.</p>
+  </div>
+
+</div>
+</body>
+</html>
