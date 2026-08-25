@@ -84,12 +84,30 @@
   </div>
 
   <div class="card">
-    <h2>Sharing</h2>
-    <p style="margin:0 0 8px">Send a teammate this page. Then open <strong>Flags → Export</strong>,
-    copy the JSON, and send it to them — they paste it into <strong>Import</strong> and see exactly
-    your screens and your findings.</p>
-    <p style="margin:0;color:var(--muted);font-size:14.5px">Updates arrive on their own. The
-    bookmark fetches the current file every click, so nobody re-copies anything.</p>
+    <h2>Sharing what you found</h2>
+    <p style="margin:0 0 12px">Open <strong>Flags &rarr; Export</strong>. There are two buttons,
+    for two different people:</p>
+    <table>
+      <tr>
+        <td>Copy summary</td>
+        <td><strong>For anyone.</strong> Plain text they can read with nothing installed — paste it
+          into WhatsApp, a group chat or an issue. Each line carries the page, the width, your note
+          and the element at fault:
+          <div style="background:var(--recess);padding:9px 11px;border-radius:7px;margin-top:7px;
+            font-family:'JetBrains Mono',Consolas,monospace;font-size:12px;white-space:pre-wrap;">- **Members** @320px — header pushes the page sideways on a small phone
+  overflow +9px: a.flex-1.md:flex-none "person_addAdd New Member"</div>
+        </td>
+      </tr>
+      <tr>
+        <td>Copy JSON</td>
+        <td><strong>For someone who also has screenflag.</strong> They paste it into
+          <strong>Import</strong> and get your exact routes and flags, and can click straight back
+          to any flagged screen at the width you flagged it at.</td>
+      </tr>
+    </table>
+    <p style="margin:12px 0 0;color:var(--muted);font-size:14.5px">To share the tool itself, send
+    someone this page. Updates arrive on their own — the bookmark fetches the current file every
+    click, so nobody re-copies anything.</p>
   </div>
 
 </div>

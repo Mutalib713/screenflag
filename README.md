@@ -42,13 +42,32 @@ Then click the bookmark on any page you want to review.
 - **Replace a real device.** It changes the viewport, not the browser engine, the touch input or
   the GPU.
 
-## Sharing with your team
+## Using it
 
-Send them the install link. Then export your routes and flags and send them the blob — they import
-it and see exactly your screens and your findings.
+1. Open the site you want to check and click the bookmark.
+2. Click **Routes**, paste in the pages you care about — one per line, `Label = /path` — or browse
+   the frame to a page and hit **Add current page**. Saved against that domain, so they are waiting
+   next time.
+3. Pick a width, or drag the right edge. **320 is where things break.**
+4. Press **Play** to walk the list hands-free, or click a pill to jump to one page.
+5. When something looks wrong, hit the **star** and write a line about it. The route, width, time
+   and measurements are captured for you.
+6. **Flags → Export** when you are done.
 
-Updates arrive on their own: the bookmark loads the current file each click, so nobody re-copies
-anything.
+## Sharing what you found
+
+**Flags → Export** gives you two buttons, for two different people:
+
+- **Copy summary** — plain text for *anyone*, nothing installed. Paste into WhatsApp or an issue:
+  ```
+  - **Members** @320px — header pushes the page sideways on a small phone
+    overflow +9px: a.flex-1.md:flex-none "person_addAdd New Member"
+  ```
+- **Copy JSON** — for someone who also has screenflag. They **Import** it and get your exact routes
+  and flags, and can jump back to any flagged screen at the width you flagged it at.
+
+To share the tool itself, send them the install link. Updates arrive on their own: the bookmark
+loads the current file each click, so nobody re-copies anything.
 
 ## Development
 
