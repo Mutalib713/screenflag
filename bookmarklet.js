@@ -6,7 +6,7 @@
   var existing = document.getElementById("__screenflag_host");
   if (existing) { existing.remove(); return; }
   var s = document.createElement("script");
-  s.src = "https://cdn.jsdelivr.net/gh/Mutalib713/screenflag@main/src/screenflag.js";
+  s.src = "https://screenflag.vercel.app/src/screenflag.js";
   s.onerror = function () {
     alert(
       "screenflag could not load.\n\n" +

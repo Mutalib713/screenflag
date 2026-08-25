@@ -16,7 +16,7 @@ Those show you many widths. None of them close the loop:
 
 ## Install
 
-Open **[install.html](install.html)** and drag the button to your bookmarks bar. That is it — no
+Open **<https://screenflag.vercel.app/install>** and drag the button to your bookmarks bar. That is it — no
 extension, no account, nothing to compile.
 
 Then click the bookmark on any page you want to review.

@@ -75,19 +75,17 @@ the same file that is edited, and because this machine punishes toolchains.
 - Storage: `localStorage`, scoped per origin — routes and flags live with the site they describe
 - Delivery: a short loader bookmarklet that fetches `screenflag.js` from the public repo via CDN,
   so a fix reaches everyone on their next click with nothing re-copied
-- Hosting: **none.** GitHub raw through a CDN. No Vercel project, no infra, $0/month.
+- Hosting: **Vercel static, `screenflag.vercel.app`** — Mutalib's decision 2026-08-25, replacing
+  the original "no hosting, jsDelivr" plan. Free tier, no server, no functions; the project is
+  linked to the GitHub repo so a push to `main` deploys itself.
 - Repo: **public** (his decision, same day) so teammates need no account and no invite
 
-> ⚠ **OPEN — the update story does not work yet.** Measured 2026-08-25: jsDelivr serves a stale
-> copy of `@main` for hours after a push. A fix was pushed, `purge.jsdelivr.net` returned
-> `"status":"finished"`, and the CDN still served the old file **70+ seconds and six checks
-> later**. A commit-pinned URL (`@<sha>`) serves the new file instantly, but a pinned bookmark
-> never updates, which defeats the point.
->
-> So README's "updates arrive on their own, nobody re-copies anything" is **currently false**.
-> Resolve before sharing widely. Candidates: deploy the repo as a Vercel static site (push →
-> auto-deploy → fresh, still $0, but it is a change to this section and therefore Mutalib's call),
-> or accept eventual consistency and document the lag honestly.
+**Why the CDN plan was dropped — do not go back to it.** jsDelivr serves a stale `@main` for hours.
+Measured: a fix was pushed, `purge.jsdelivr.net` answered `"status":"finished"`, and the CDN was
+**still serving the old file 70+ seconds and six checks later**. A commit-pinned `@<sha>` URL is
+instant, but a pinned bookmark never updates at all, which defeats the delivery model. Vercel with
+`Cache-Control: public, max-age=0, must-revalidate` makes the browser revalidate every click and
+take a 304 when nothing changed — so a push genuinely reaches everyone on their next use.
 
 ## 8. SACRED RULES
 
