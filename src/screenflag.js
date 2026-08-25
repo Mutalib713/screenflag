@@ -206,8 +206,11 @@
 
     ".stage{flex:1 1 auto;overflow:auto;display:flex;justify-content:center;align-items:flex-start;padding:16px;position:relative;}",
     ".scaler{position:relative;flex:0 0 auto;}",
+    // content-box, deliberately. With border-box the 10px bezel eats into the width, so a frame
+    // set to 320 laid the page out at 300 while the readout still said 320 — the exact silent lie
+    // Sacred Rule 2 exists to prevent. Here the width IS the viewport and the bezel sits outside it.
     ".dev{position:absolute;top:0;left:0;transform-origin:top left;background:#fff;overflow:hidden;",
-    "  box-shadow:0 14px 40px rgba(0,45,25,.13);}",
+    "  box-sizing:content-box;box-shadow:0 14px 40px rgba(0,45,25,.13);}",
     ".dev.framed{border:10px solid #16191a;border-radius:22px;}",
     ".dev.plain{border:1px solid #d3dcd1;border-radius:10px;}",
     ".dev iframe{display:block;border:0;background:#fff;width:100%;height:100%;}",
